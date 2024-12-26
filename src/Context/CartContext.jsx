@@ -12,7 +12,8 @@ export default function CartContextProvider(props) {
   const [cartId, setcartId] = useState("");
   
   let headers = { token: localStorage.getItem("Token") };
-
+let location= `${window.location.origin}/FreshCart-Ecommerce/allOrders`;
+ 
   async function addToCart(productId) {
     return await axios
       .post(
@@ -132,7 +133,7 @@ export default function CartContextProvider(props) {
       )
       .then((data) => {
         toast.success(`${data.data.status}`);
-        window.location.href = `${window.location.origin}/FreshCart-Ecommerce/allOrders`;
+        window.location.href = location;
         cleerCart();
       })
       .catch((error) => {
