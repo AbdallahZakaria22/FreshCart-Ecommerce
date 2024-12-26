@@ -12,13 +12,14 @@ export default function Navbar() {
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   const navigate = useNavigate();
-
+  
   let userName = localStorage.getItem("Username");
   let email = localStorage.getItem("UserEmail");
 
   const logout = () => {
-    localStorage.removeItem("Token");
+    localStorage.clear()
     setToken(null);
     navigate("/login");
     setIsDropdownOpen(false);

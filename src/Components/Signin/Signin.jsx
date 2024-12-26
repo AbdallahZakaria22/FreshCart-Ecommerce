@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
 import { TokenContext } from "../../Context/TokenContext";
+import { jwtDecode } from "jwt-decode";
 
 export default function Signin() {
   let { token, setToken } = useContext(TokenContext);
@@ -35,7 +36,12 @@ export default function Signin() {
       Login(values);
     },
   });
-
+ 
+  function userId(token) {
+    const decoded = jwtDecode(token);
+    localStorage.setItem("userid", decoded.id);
+    
+  }
   async function Login(values) {
     setIsLoading(true);
     return await axios
@@ -45,6 +51,7 @@ export default function Signin() {
         localStorage.setItem("Token", data.data.token);
         localStorage.setItem("Username", data.data.user.name);
         localStorage.setItem("UserEmail", data.data.user.email);
+        userId(data.data.token)
         setToken(data.data.token);
         navigate("/");
         setIsLoading(false);
