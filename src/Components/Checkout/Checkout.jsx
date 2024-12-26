@@ -5,13 +5,18 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Checkout() {
   const [payment, setpayment] = useState("Cash");
+  let headers = { token: localStorage.getItem("Token") };
 
+  let navigate =useNavigate()
 
-  const { CashCheckOut, OnlineCheckOut } = useContext(CartContext);
-
+  const {  cleerCart } = useContext(CartContext);
+ let cartId =localStorage.getItem("cardId")
   const formik = useFormik({
     initialValues: {
       phone: "",
@@ -42,11 +47,56 @@ export default function Checkout() {
     },
   });
 
+  async function Cash(shippingAddress) {
+    return await axios
+    .post(
+      `https://ecommerce.routemisr.com/api/v1/orders/${cartId}`,
+      {
+        shippingAddress,
+      },
+      {
+        headers,
+      }
+    )
+    .then((data) => {
+      toast.success(`${data.data.status}`);
+      navigate("/FreshCart-Ecommerce/allOrders")
+      cleerCart();
+    })
+    .catch((error) => {
+      toast.error(`${error.message}`);
+    });
+
+  }
+  async function Card(shippingAddress) {
+    return await axios
+    .post(
+      `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${window.location.origin}`,
+      {
+        shippingAddress,
+      },
+      {
+        headers,
+      }
+    )
+    .then((data) => {
+      window.location.href = data.data.session.url;
+    })
+    .catch((error) => {
+      toast.error(`${error.message}`);
+    });
+
+
+  }
+
   async function ckeckOut(values) {
     if (payment == "Cash") {
-      CashCheckOut(values);
+      Cash(values)
+       
+    
     } else {
-      OnlineCheckOut(values);
+   
+      Card(values)
     }
   }
 

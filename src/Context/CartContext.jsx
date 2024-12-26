@@ -12,7 +12,7 @@ export default function CartContextProvider(props) {
   const [cartId, setcartId] = useState("");
   
   let headers = { token: localStorage.getItem("Token") };
-let location= `${window.location.origin}/FreshCart-Ecommerce/allOrders`;
+
  
   async function addToCart(productId) {
     return await axios
@@ -45,7 +45,7 @@ let location= `${window.location.origin}/FreshCart-Ecommerce/allOrders`;
         setTotalPrise(data.data.data.totalCartPrice);
         setcarProducts(data.data.data.products);
         setNumberOfItems(data.data.numOfCartItems);
-        setcartId(data.data.cartId);
+        localStorage.setItem("cardId",data.data.cartId);
       })
       .catch((error) => {
         // toast.error(`${error.message}`);
@@ -102,44 +102,8 @@ let location= `${window.location.origin}/FreshCart-Ecommerce/allOrders`;
       });
   }
 
-  async function OnlineCheckOut(shippingAddress) {
-    return await axios
-      .post(
-        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${window.location.origin}`,
-        {
-          shippingAddress,
-        },
-        {
-          headers,
-        }
-      )
-      .then((data) => {
-        window.location.href = data.data.session.url;
-      })
-      .catch((error) => {
-        toast.error(`${error.message}`);
-      });
-  }
-  async function CashCheckOut(shippingAddress) {
-    return await axios
-      .post(
-        `https://ecommerce.routemisr.com/api/v1/orders/${cartId}`,
-        {
-          shippingAddress,
-        },
-        {
-          headers,
-        }
-      )
-      .then((data) => {
-        toast.success(`${data.data.status}`);
-        window.location.href = location;
-        cleerCart();
-      })
-      .catch((error) => {
-        toast.error(`${error.message}`);
-      });
-  }
+ 
+  
 
   useEffect(() => {
     getCartItems();
@@ -157,8 +121,7 @@ let location= `${window.location.origin}/FreshCart-Ecommerce/allOrders`;
         totalPrise,
         cleerCart,
         cartId,
-        CashCheckOut,
-        OnlineCheckOut,
+        
       }}
     >
       {props.children}
