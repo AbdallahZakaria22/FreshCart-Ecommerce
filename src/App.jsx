@@ -33,7 +33,7 @@ function App() {
       children: [
         { index: true, element: <Home /> },
         {
-          path: "login",
+          path: "/FreshCart-Ecommerce/login",
           element: (
             <ProtectedAuth>
               <Signin />{" "}
@@ -41,7 +41,7 @@ function App() {
           ),
         },
         {
-          path: "register",
+          path: "/FreshCart-Ecommerce/register",
           element: (
             <ProtectedAuth>
               {" "}
@@ -50,7 +50,7 @@ function App() {
           ),
         },
         {
-          path: "products",
+          path: "/FreshCart-Ecommerce/products",
           element: (
             <ProtectedRoutes>
               <Products />
@@ -58,7 +58,7 @@ function App() {
           ),
         },
         {
-          path: "products/:id",
+          path: "/FreshCart-Ecommerce/products/:id",
           element: (
             <ProtectedRoutes>
               <ProductDetails />
@@ -66,7 +66,7 @@ function App() {
           ),
         },
         {
-          path: "categories",
+          path: "/FreshCart-Ecommerce/categories",
           element: (
             <ProtectedRoutes>
               <Categories />
@@ -74,7 +74,7 @@ function App() {
           ),
         },
         {
-          path: "wishlist",
+          path: "/FreshCart-Ecommerce/wishlist",
           element: (
             <ProtectedRoutes>
               <Wishlist />
@@ -82,7 +82,7 @@ function App() {
           ),
         },
         {
-          path: "brands",
+          path: "/FreshCart-Ecommerce/brands",
           element: (
             <ProtectedRoutes>
               <Brands />
@@ -90,7 +90,7 @@ function App() {
           ),
         },
         {
-          path: "cart",
+          path: "/FreshCart-Ecommerce/cart",
           element: (
             <ProtectedRoutes>
               <Cart />
@@ -99,7 +99,7 @@ function App() {
         },
         ,
         {
-          path: "allOrders",
+          path: "/FreshCart-Ecommerce/allOrders",
           element: (
             <ProtectedRoutes>
               <AllOrders />
@@ -108,7 +108,7 @@ function App() {
         },
         ,
         {
-          path: "checkout",
+          path: "/FreshCart-Ecommerce/checkout",
           element: (
             <ProtectedRoutes>
               <Checkout />
@@ -116,18 +116,18 @@ function App() {
           ),
         },
         {
-          path: "verify-code",
+          path: "/FreshCart-Ecommerce/verify-code",
           element: <VerifyCode />,
         },
         {
-          path: "forget-password",
+          path: "/FreshCart-Ecommerce/forget-password",
           element: <ForgetPassword />,
         },
         {
-          path: "reset-password",
+          path: "/FreshCart-Ecommerce/reset-password",
           element: <ResetPassword />,
         },
-        { path: "*", element: <NotFound /> },
+        { path: "/FreshCart-Ecommerce/*", element: <NotFound /> },
       ],
     },
   ]);

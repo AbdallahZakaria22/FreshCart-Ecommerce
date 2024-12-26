@@ -5,6 +5,6 @@ export default function ProtectedRoutes(props) {
   if (localStorage.getItem("Token")) {
     return props.children;
   } else {
-    return <Navigate to="/login" />;
+    return <Navigate to="/FreshCart-Ecommerce/login" />;
   }
 }

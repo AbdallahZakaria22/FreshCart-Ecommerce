@@ -8,7 +8,7 @@ import { CartContext } from "../../Context/CartContext";
 
 export default function Checkout() {
   const [payment, setpayment] = useState("Cash");
-  let headers = { token: localStorage.getItem("Token") };
+
 
   const { CashCheckOut, OnlineCheckOut } = useContext(CartContext);
 

@@ -40,7 +40,7 @@ export default function ResetPassword() {
           `Your Password is Reset Successfully, please signin again`
         );
 
-        navigate("/login");
+        navigate("/FreshCart-Ecommerce/login");
         setIsLoading(false);
       })
       .catch((error) => {

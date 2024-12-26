@@ -35,14 +35,11 @@ export default function ForgetPassword() {
       )
       .then((data) => {
         toast.success(`${data.data.message}`);
-        console.log(data);
 
-        navigate("/verify-code");
+        navigate("/FreshCart-Ecommerce/verify-code");
         setIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
-
         toast.error(`${error.response.data.message}`);
         setIsLoading(false);
       });

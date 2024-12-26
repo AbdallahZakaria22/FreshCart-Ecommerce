@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
@@ -174,7 +173,7 @@ export default function Cart() {
             </div>
             <button
               onClick={() => {
-                navigate("/checkout");
+                navigate("/FreshCart-Ecommerce/checkout");
               }}
               className="py-2 px-4 bg-main w-full rounded font-black text-gray-200 md:text-base mt-5"
             >
@@ -189,7 +188,7 @@ export default function Cart() {
               </h1>
               <button
                 onClick={() => {
-                  navigate("/products");
+                  navigate("/FreshCart-Ecommerce/products");
                 }}
                 className="py-2 px-4 bg-main w-full rounded font-black text-gray-200 md:text-base "
               >

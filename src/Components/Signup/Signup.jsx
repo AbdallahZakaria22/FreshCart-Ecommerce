@@ -48,7 +48,7 @@ export default function Signup() {
       .post("https://ecommerce.routemisr.com/api/v1/auth/signup", values)
       .then((data) => {
         toast.success(`${data.data.message} Please login Now`);
-        navigate("/login");
+        navigate("/FreshCart-Ecommerce/login");
         setIsLoading(false);
       })
       .catch((error) => {
@@ -230,7 +230,7 @@ export default function Signup() {
                 You have an account?
                 <Link
                   className="mb-1 mx-1 hover:text-green-800 text-base font-bold text-main"
-                  to="/login"
+                  to="/FreshCart-Ecommerce/login"
                 >
                   Login Now!
                 </Link>

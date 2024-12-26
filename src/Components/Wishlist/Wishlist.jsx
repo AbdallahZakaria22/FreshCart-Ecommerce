@@ -93,7 +93,7 @@ export default function Wishlist() {
               </h1>
               <button
                 onClick={() => {
-                  navigate("/products");
+                  navigate("/FreshCart-Ecommerce/products");
                 }}
                 className="py-2 px-4 bg-main w-full rounded font-black text-gray-200 md:text-base "
               >

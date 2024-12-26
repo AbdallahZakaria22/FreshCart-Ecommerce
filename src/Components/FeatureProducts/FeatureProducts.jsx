@@ -37,7 +37,7 @@ export default function FeatureProducts() {
             key={product.id}
             className="product cursor-pointer text-start px-2 shadow-md rounded-md"
           >
-            <Link to={`/products/${product.id}`}>
+            <Link to={`/FreshCart-Ecommerce/products/${product.id}`}>
               <img
                 className="h-auto max-w-full rounded-lg"
                 src={product.imageCover}

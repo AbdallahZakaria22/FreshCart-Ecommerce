@@ -53,7 +53,7 @@ export default function Signin() {
         localStorage.setItem("UserEmail", data.data.user.email);
         userId(data.data.token)
         setToken(data.data.token);
-        navigate("/");
+        navigate("/FreshCart-Ecommerce/");
         setIsLoading(false);
       })
       .catch((error) => {
@@ -151,14 +151,14 @@ export default function Signin() {
                 You don’t have an account?
                 <Link
                   className="mb-1 mx-1 hover:text-green-800 text-base font-bold text-main"
-                  to="/register"
+                  to="/FreshCart-Ecommerce/register"
                 >
                   Sign Up
                 </Link>
               </p>
               <Link
                 className="mb-1 mx-1 hover:text-green-800 text-base font-bold text-main"
-                to="/forget-password"
+                to="/FreshCart-Ecommerce/forget-password"
               >
                 Forget Your Password?
               </Link>

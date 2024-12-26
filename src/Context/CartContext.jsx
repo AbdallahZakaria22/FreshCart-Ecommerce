@@ -10,7 +10,6 @@ export default function CartContextProvider(props) {
   const [carProducts, setcarProducts] = useState([]);
   const [totalPrise, setTotalPrise] = useState(0);
   const [cartId, setcartId] = useState("");
-  const port = window.location.port;
   
   let headers = { token: localStorage.getItem("Token") };
 
@@ -105,7 +104,7 @@ export default function CartContextProvider(props) {
   async function OnlineCheckOut(shippingAddress) {
     return await axios
       .post(
-        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:${port}`,
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${window.location.origin}`,
         {
           shippingAddress,
         },
@@ -133,7 +132,7 @@ export default function CartContextProvider(props) {
       )
       .then((data) => {
         toast.success(`${data.data.status}`);
-        window.location.href = "http://localhost:5173/allOrders";
+        window.location.href = `${window.location.origin}/FreshCart-Ecommerce/allOrders`;
         cleerCart();
       })
       .catch((error) => {

@@ -33,9 +33,9 @@ export default function VerifyCode() {
       .then((data) => {
         toast.success(`Your Code is Verified Successfully`);
 
-        console.log(data);
+       
 
-        navigate("/reset-password");
+        navigate("/FreshCart-Ecommerce/reset-password");
         setIsLoading(false);
       })
       .catch((error) => {

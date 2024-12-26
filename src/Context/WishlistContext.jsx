@@ -7,7 +7,6 @@ export let WishlistContext = createContext();
 export default function WishlistContextProvider(props) {
   const [numberOfWishList, setNumberOfWishLists] = useState(0);
   const [WishLists, setWishLists] = useState([]);
-  const [WishListsid, setWishListsid] = useState([]);
 
   let headers = { token: localStorage.getItem("Token") };
 
@@ -71,7 +70,6 @@ export default function WishlistContextProvider(props) {
       value={{
         addToWishList,
         numberOfWishList,
-        WishListsid,
         getWishListItems,
         WishLists,
         deleteItemOnWishList,

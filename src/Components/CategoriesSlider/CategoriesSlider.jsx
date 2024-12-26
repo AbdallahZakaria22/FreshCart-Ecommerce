@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Slider from "react-slick";
 import axios from "axios";
 import { toast } from "react-toastify";
