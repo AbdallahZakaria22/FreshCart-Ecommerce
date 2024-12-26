@@ -80,7 +80,8 @@ export default function Checkout() {
       }
     )
     .then((data) => {
-      window.location.href = data.data.session.url;
+      window.open(data.data.session.url, "_blank");
+      navigate("/FreshCart-Ecommerce/allOrders")
     })
     .catch((error) => {
       toast.error(`${error.message}`);
