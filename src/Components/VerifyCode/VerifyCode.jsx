@@ -64,7 +64,7 @@ export default function VerifyCode() {
               <input
                 id="resetCode"
                 name="resetCode"
-                type="text"
+                type="tel"
                 placeholder="your resetCode"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}

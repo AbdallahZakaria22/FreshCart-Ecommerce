@@ -24,7 +24,7 @@ export default function Checkout() {
       details: "",
     },
     validationSchema: Yup.object({
-      phone: Yup.number().required("Please Inter Your Phone"),
+      phone: Yup.number().required("Please Inter Your Phone").matches(/^01[0125]{1}[0-9]{8}$/, 'Invalid Egyptian phone number'),
       city: Yup.string().required("Please Inter Your city"),
       details: Yup.string()
         .required("Details are required")
