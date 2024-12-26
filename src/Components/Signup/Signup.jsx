@@ -29,7 +29,9 @@ export default function Signup() {
       email: Yup.string()
         .email("Invalid email address")
         .required("Please Inter Your Email"),
-      phone: Yup.number().required("Please Inter Your Phone").matches(/^01[0125]{1}[0-9]{8}$/, 'Invalid Egyptian phone number'),
+       phone: Yup.string()
+        .matches(/^01[0125]{1}[0-9]{8}$/, 'Invalid Egyptian phone number')
+        .required("Please Enter Your Phone"),
       password: Yup.string()
         .required("Please Inter Your password")
         .min(6, "min is 6 numbers or char"),
